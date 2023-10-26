@@ -61,12 +61,12 @@ char editorReadKey() {
 void editorDrawRows() {
     int y;
     for (y = 0; y < 24; y++) {
-        write(STDIN_FILENO, "~\r\n", 3);
+        write(STDOUT_FILENO, "~\r\n", 3);
     }
 }
 
 void editorRefreshScreen() {
-    write(STDIN_FILENO, "\x1b[2J", 4);  // clear the screen
+    write(STDOUT_FILENO, "\x1b[2J", 4);  // clear the screen
     write(STDOUT_FILENO, "\x1b[H", 3);  // reposition cursor to top left
 
     editorDrawRows();
